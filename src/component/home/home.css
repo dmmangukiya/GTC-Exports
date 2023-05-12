@@ -1,0 +1,65 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url(../../images/2.jpg);;
+  /* background: url(../../images/2.jpg)
+    no-repeat; */
+  background-position: center;
+  background-size: cover;
+  padding-top: 20rem;
+  padding-bottom: 10rem;
+  margin-top: 8rem;
+
+  /* height: 80rem;
+    width: 100%; */
+}
+
+.home .content {
+  text-align: center;
+  width: 60rem;
+}
+
+.home .content h3 {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 1000;
+}
+
+.home .content h3 span {
+  color: var(--orange);
+  font-size: 3rem;
+  font-weight: 1000;
+}
+
+.home .content p {
+  color: white;
+  font-size: 3rem;
+  padding: 1rem 0;
+  line-height: 1.8;
+  font-weight: 1000;
+}
+.home .content p .mon {
+  background-color: white;
+  opacity: 0.8;
+  /* padding: 0 0.5rem; */
+  border-radius: 15px;
+}
+.home .content p .soon {
+  color: var(--orange);
+  font-weight: 1000;
+  
+}
+
+.home .content .btn {
+    font-weight: 1000;
+  color: white;
+  border: solid white;
+}
+/* 
+@media only screen and (min-width:600px){
+   .home {
+             width:50rem;
+             
+        }
+} */
