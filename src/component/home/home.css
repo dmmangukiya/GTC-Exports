@@ -55,6 +55,7 @@
     font-weight: 1000;
   color: white;
   border: solid white;
+  background-color: var(--orange);
 }
 /* 
 @media only screen and (min-width:600px){

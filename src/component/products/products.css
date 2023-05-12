@@ -45,6 +45,22 @@
     color: var(--orange);
     padding: .5rem 0;
 }
+.products .search{
+    width: 20%;
+    transform: scale(2);
+    border-radius: 25px;
+    border-color: var(--orange);
+}
+.products .search::placeholder{
+    color: var(--orange);
+    text-align: center;
+}
+.products .search:hover{
+    width:40%;
+    border-color: black;
+}
+
+
 
 @media screen and (max-width: 517px) {
 
@@ -68,4 +84,9 @@
     .products .product-slider .box h3{
         font-size: 1.5rem;
     }
+    .products .search{
+        transform: scale(1.5);
+        font-size: 16px;
+    }
+ 
 }

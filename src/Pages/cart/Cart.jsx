@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 import "./Cart.css";
 
@@ -14,7 +15,8 @@ import {
   selectcartItems,
   selectCartTotal,
 } from "../../redux/cart/cart.selectors";
-import cartItem from "../../component/cart-item/cart-item";
+//  
+import { useLocation } from "react-router-dom";
 
 const Cart = ({ cartItems, total }) => {
   console.log(cartItems);
@@ -31,16 +33,25 @@ const Cart = ({ cartItems, total }) => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [description, setDiscription] = useState("");
+  const [summury, setSummury] = useState("");
+
+  const location = useLocation();
+
+  useEffect(() => { 
+      window.scrollTo(0,0)
+  }, [location])
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const mailtoLink = `mailto:rushikukadiya3032@gmail.com?subject=Contact Form Submission&body=
+    const mailtoLink = `mailto:info@gautamindustries.info?subject=Contact Form Submission&body=
     Full Name: ${fullName}
     Address: ${address}
     Email: ${email}
     Description: ${names + ", quantity = " + q} 
-    Phone Number: ${phoneNumber}`;
+    Phone Number: ${phoneNumber}
+    Summury:${summury}`;
+    
 
     window.open(encodeURI(mailtoLink));
   };
@@ -49,7 +60,7 @@ const Cart = ({ cartItems, total }) => {
     <div className="container">
       <Header />
       <div className="wrapper">
-        <h1 className="title">YOUR BAG</h1>
+        <h1 className="title">Shopping Cart</h1>
         <div className="top">
           <Link to="/">
             <button className="topbutton">conTinue shopping</button>
@@ -82,6 +93,7 @@ const Cart = ({ cartItems, total }) => {
         <div className="form-group">
           <label htmlFor="fullName">Full Name:</label>
           <input
+            className="inform"
             type="text"
             id="fullName"
             value={fullName}
@@ -92,6 +104,7 @@ const Cart = ({ cartItems, total }) => {
         <div className="form-group">
           <label htmlFor="address">Address:</label>
           <textarea
+            className="inform"
             id="address"
             value={address}
             onChange={(event) => setAddress(event.target.value)}
@@ -101,6 +114,7 @@ const Cart = ({ cartItems, total }) => {
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
+          className="inform"
             type="email"
             id="email"
             value={email}
@@ -111,6 +125,7 @@ const Cart = ({ cartItems, total }) => {
         <div className="form-group">
           <label htmlFor="phoneNumber">Phone Number:</label>
           <input
+            className="inform"
             type="tel"
             id="phoneNumber"
             value={phoneNumber}
@@ -119,8 +134,9 @@ const Cart = ({ cartItems, total }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="description">description:</label>
+          <label htmlFor="description">Your order:</label>
           <textarea
+            className="inform"
             type="text"
             id="description"
             value={names + ", Quantity = " + q}
@@ -128,8 +144,19 @@ const Cart = ({ cartItems, total }) => {
             required
           />
         </div>
+        <div className="form-group">
+          <label htmlFor="summury">Add description:</label>
+          <textarea
+            className="inform"
+            value={summury}
+            type="text"
+            id="summury"
+            onChange={(event) => setSummury(event.target.value)}
+           
+          />
+        </div>
         <button className="inq-btn" type="submit">
-          Inquiry
+         Send Inquiry
         </button>
       </form>
 

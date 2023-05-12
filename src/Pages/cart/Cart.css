@@ -54,7 +54,7 @@
   white-space: pre-line;
 }
 
-/* Form css */
+/************************** Form css *********************************/
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -76,7 +76,7 @@ textarea {
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: 1.8rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -86,25 +86,36 @@ button[type="submit"] {
   color: black;
   border: 2px solid black;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 1rem 1rem;
+  font-size: 2rem;
   cursor: pointer;
   width: 150px;
   justify-content: center;
   margin: 20px auto;
+  background-color: var(--orange);
 }
 
 button[type="submit"]:hover {
   background-color: var(--orange);
   color: white;
 }
+button[type="submit"]:active{
+  background-color: rgb(233, 142, 73);
+  box-shadow: 0 5px #666;
+  transform: translateY(12px);
+}
 
-@media screen and (max-width: 856px) {
+@media screen and (max-width: 516px) {
   .title{
     margin: 7rem auto 0 auto;
   }
   .top{
     justify-content: center;
+  }
+  .inform{
+    width: 100%;
+    transform: scale(1);
+    font-size: 16px;
   }
 }
 
@@ -115,4 +126,15 @@ button[type="submit"]:hover {
   .top{
     justify-content: center;
   }
+}
+
+
+
+.form-group label{
+  font-size: 1.8rem;
+}
+
+
+.inq-btn{
+  background-color: var(--orange);
 }

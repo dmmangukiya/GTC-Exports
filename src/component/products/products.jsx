@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
-
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.action";
 
 import { ProductsData } from "../../data/products";
-
+// import Search from "../../data/search";
 import "./products.css";
 
 const Products = ({ item, addItem }) => {
@@ -22,6 +18,7 @@ const Products = ({ item, addItem }) => {
   //   },[]);
 
   const [MenuProducts, setMenuProducts] = useState(ProductsData);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const filter = (type) => {
     setMenuProducts(ProductsData.filter((product) => product.type === type));
@@ -31,9 +28,18 @@ const Products = ({ item, addItem }) => {
       <h1 className="heading">
         our <span>products</span>
       </h1>
+      {/* <Search/> */}
 
+      <input className="search" type='text' placeholder='search' onChange={(event) => {setSearchTerm(event.target.value)}} content="width:device-width, height:device-height,  initial-scale=1.5;" />
       <div className="swiper product-slider">
-        {MenuProducts.map((product, i) => (
+      {
+        MenuProducts.filter((product)=>{
+                    if (searchTerm == ""){
+                        return product
+                    }else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                        return product
+                    }
+                }).map((product, i) => (
           <div className="wrapper">
             <div className="swiper-slide box" id="item1">
               <img src={product.img} alt="product-image" />
@@ -46,6 +52,23 @@ const Products = ({ item, addItem }) => {
             </div>
           </div>
         ))}
+
+
+
+{/* 
+        {MenuProducts.map((product, i) => (
+          <div className="wrapper">
+            <div className="swiper-slide box" id="item1">
+              <img src={product.img} alt="product-image" />
+              <h3>{product.name}</h3>
+              <div className="price">{product.price}</div>
+
+              <button onClick={() => addItem(product)} className="btn">
+                add 
+              </button>
+            </div>
+          </div>
+        ))} */}
       </div>
     </section>
   );

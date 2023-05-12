@@ -2,8 +2,10 @@ import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
+// import Search from "../../data/search";
 import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
+
+
 
 const Header = ({ itemCount }) => (
   <header className="header">
@@ -17,6 +19,7 @@ const Header = ({ itemCount }) => (
       <a href="#products">Products</a>
       {/* <a href="#categories">Categories</a> */}
       <a href="#footer">Contact</a>
+      {/* <Search/>  */}
     </nav>
 
     <div className="icons">
@@ -25,7 +28,7 @@ const Header = ({ itemCount }) => (
 
       <Link to="/cart">
         <div className="fas fa-shopping-cart" id="cart-btn"></div>
-        {/* <span className="item-count">{itemCount}</span> */}
+        <span className="item-count"><span className="itembg">{itemCount}</span></span>
       </Link>
     </div>
 

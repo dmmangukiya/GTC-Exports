@@ -166,9 +166,14 @@
 }
 .item-count{
     position: absolute;
-    top: 1px;
-    right: 11rem;
+    top: 7px;
+    right: 8.5%;
     color: black;
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
-
+.itembg{
+    background-color: var(--orange);
+    border-radius: 25px;
+    color: white;
+    padding: 0 .5rem;
+}
