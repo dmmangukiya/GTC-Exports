@@ -1,8 +1,9 @@
 {
-  "homepage": "http://dmmangukiya.github.io/GTC-Exports",
+  
   "name": "papad",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://dmmangukiya.github.io/GTC-Exports",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
